@@ -10,6 +10,8 @@ on:
         type: choice
         description: 'Please select the model to compile'
         options:
+        - 'B70'
+        - 'BELL-A040WQ'
         - 'WIA3300-10'
         default: 'K2P'
       release:
