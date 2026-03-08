@@ -9,22 +9,6 @@ on:
         type: choice
         options:
           - K2P
-          - K2P-NANO
-          - K2P-USB
-          - MI-R3G
-          - NEWIFI3
-          - RM2100
-          # 新增支援清單 (基於 trunk/configs/boards)
-          - CR660x
-          - DIR-878
-          - DIR-882
-          - JCG-836PRO
-          - JCG-AC860M
-          - JCG-Q20
-          - JCG-Y2
-          - MI-R3P
-          - MR2600
-          - NETGEAR-BZV
           - XY-C1
         default: K2P
 
@@ -36,18 +20,6 @@ on:
         options:
           - English_Only
           - CN (繁體中文)
-          - RU (Pусский)
-          - BR (Brazil)
-          - CZ (Česky)
-          - DA (Dansk)
-          - DE (Deutsch)
-          - ES (Español)
-          - FI (Finsk)
-          - FR (Français)
-          - NO (Norsk)
-          - PL (Polski)
-          - SV (Svensk)
-          - UK (Українська)
       
       nanoversion:
         description: "開啟極限瘦身 (Nano Optimization)"
