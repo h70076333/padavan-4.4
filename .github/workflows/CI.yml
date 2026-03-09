@@ -10,6 +10,22 @@ on:
         options:
           - K2P
           - AC105G
+          - K2P-USB
+          - MI-R3G
+          - NEWIFI3
+          - RM2100
+          # 新增支援清單 (基於 trunk/configs/boards)
+          - CR660x
+          - DIR-878
+          - DIR-882
+          - JCG-836PRO
+          - JCG-AC860M
+          - JCG-Q20
+          - JCG-Y2
+          - MI-R3P
+          - MR2600
+          - NETGEAR-BZV
+          - XY-C1
         default: K2P
 
       language_select:
@@ -81,7 +97,7 @@ jobs:
 
       - name: ⬇️-Clone-Source-Code
         run: |
-          git clone --depth=1 https://github.com/h70076333/padavan-4.4.git /opt/rt-n56u
+          git clone --depth=1 https://github.com/TWShiyuLiou1997/padavan-ng.git /tmp/padavan-ng
 
       # =======================================================
       # [步驟 A] 統一準備資源 (只 Clone 一次！)
