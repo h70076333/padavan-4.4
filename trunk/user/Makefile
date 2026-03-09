@@ -148,6 +148,7 @@ dir_y += wg-quick
 endif
 dir_$(SAMBA_ENABLED)				+= samba36
 dir_$(SAMBA_ENABLED)				+= wsdd2
+dir_$(CONFIG_FIRMWARE_INCLUDE_ZEROTIER)		+= zerotier
 dir_$(CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS)	+= chnroute
 dir_$(CONFIG_FIRMWARE_INCLUDE_TTYD)		+= ttyd
 dir_$(FRP_ENABLE)				+= frp
