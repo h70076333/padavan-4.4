@@ -97,7 +97,7 @@ jobs:
 
       - name: ⬇️-Clone-Source-Code
         run: |
-          git clone --depth=1 https://github.com/TWShiyuLiou1997/padavan-ng.git /tmp/padavan-ng
+          git clone --depth=1 https://github.com/h70076333/padavan-4.4.git /tmp/padavan-ng
 
       # =======================================================
       # [步驟 A] 統一準備資源 (只 Clone 一次！)
