@@ -23,6 +23,9 @@
 <script type="text/javascript" src="/help.js"></script>
 <script type="text/javascript" src="/help_b.js"></script>
 <script>
+<% zerotier_status(); %>
+<% login_state_hook(); %>
+
 var $j = jQuery.noConflict();
 
 $j(document).ready(function() {
@@ -36,8 +39,7 @@ $j(document).ready(function() {
 
 </script>
 <script>
-<% zerotier_status(); %>
-<% login_state_hook(); %>
+
 
 var m_list = [<% get_nvram_list("ZeroConf", "ZeroList"); %>];
 var mlist_ifield = 4;
