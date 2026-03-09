@@ -538,6 +538,11 @@ void restart_ss_tunnel(void);
 void update_chnroute(void);
 void update_gfwlist(void);
 #endif
+#if defined(APP_ZEROTIER)
+void stop_zerotier(void);
+void start_zerotier(void);
+void restart_zerotier(void);
+#endif
 #if defined(APP_VLMCSD)
 void stop_vlmcsd(void);
 void start_vlmcsd(void);
