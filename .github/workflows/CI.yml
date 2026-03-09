@@ -9,7 +9,7 @@ on:
         type: choice
         options:
           - K2P
-          - K2P-NANO
+          - AC105G
           - K2P-USB
           - MI-R3G
           - NEWIFI3
