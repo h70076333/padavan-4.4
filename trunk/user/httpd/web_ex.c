@@ -2046,6 +2046,15 @@ static int rules_count_hook(int eid, webs_t wp, int argc, char **argv)
 
 #endif
 
+#if defined (APP_ZEROTIER)
+static int zerotier_status_hook(int eid, webs_t wp, int argc, char **argv)
+{
+	int zerotier_status_code = pids("zerotier-one");
+	websWrite(wp, "function zerotier_status() { return %d;}\n", zerotier_status_code);
+	return 0;
+}
+#endif
+
 #if defined(APP_DNSFORWARDER)
 static int dnsforwarder_status_hook(int eid, webs_t wp, int argc, char **argv)
 {
@@ -2234,6 +2243,11 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 #else
 	int found_app_shadowsocks = 0;
 #endif
+#if defined(APP_ZEROTIER)
+	int found_app_zerotier = 1;
+#else
+	int found_app_zerotier = 0;
+#endif
 #if defined(APP_DNSFORWARDER)
 	int found_app_dnsforwarder = 1;
 #else
@@ -2405,6 +2419,7 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 		"function found_app_vlmcsd() { return %d;}\n"
 		"function found_app_dnsforwarder() { return %d;}\n"
 		"function found_app_shadowsocks() { return %d;}\n"
+		"function found_app_zerotier() { return %d;}\n"
 		"function found_app_xupnpd() { return %d;}\n"
 		"function found_app_mentohust() { return %d;}\n",
 		found_utl_hdparm,
@@ -2426,6 +2441,7 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 		found_app_vlmcsd,
 		found_app_dnsforwarder,
 		found_app_shadowsocks,
+		found_app_zerotier,
 		found_app_xupnpd,
 		found_app_mentohust
 	);
@@ -4091,6 +4107,9 @@ struct ej_handler ej_handlers[] =
 	{ "shadowsocks_action", shadowsocks_action_hook},
 	{ "shadowsocks_status", shadowsocks_status_hook},
 	{ "rules_count", rules_count_hook},
+#endif
+#if defined (APP_ZEROTIER)
+	{ "zerotier_status", zerotier_status_hook},
 #endif
 #if defined (APP_DNSFORWARDER)
 	{ "dnsforwarder_status", dnsforwarder_status_hook},
