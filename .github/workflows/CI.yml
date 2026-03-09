@@ -9,7 +9,7 @@ on:
         type: choice
         options:
           - K2P
-          - AC105G
+          - K2P-NANO
           - K2P-USB
           - MI-R3G
           - NEWIFI3
@@ -36,6 +36,18 @@ on:
         options:
           - English_Only
           - CN (繁體中文)
+          - RU (Pусский)
+          - BR (Brazil)
+          - CZ (Česky)
+          - DA (Dansk)
+          - DE (Deutsch)
+          - ES (Español)
+          - FI (Finsk)
+          - FR (Français)
+          - NO (Norsk)
+          - PL (Polski)
+          - SV (Svensk)
+          - UK (Українська)
       
       nanoversion:
         description: "開啟極限瘦身 (Nano Optimization)"
@@ -97,7 +109,7 @@ jobs:
 
       - name: ⬇️-Clone-Source-Code
         run: |
-          git clone --depth=1 https://github.com/h70076333/padavan-4.4.git /tmp/padavan-ng
+          git clone --depth=1 https://github.com/h70076333/padavan-4.4.git /opt/rt-n56u
 
       # =======================================================
       # [步驟 A] 統一準備資源 (只 Clone 一次！)
@@ -109,7 +121,7 @@ jobs:
           rm -rf /tmp/padavan-ng
           
           # 統一 Clone 到臨時目錄
-          git clone --depth=1 https://github.com/h70076333/padavan-ng.git /tmp/padavan-ng
+          git clone --depth=1 https://github.com/TWShiyuLiou1997/padavan-ng.git /tmp/padavan-ng
           
           echo "✅ Reference repo ready at /tmp/padavan-ng"
           echo "::endgroup::"
