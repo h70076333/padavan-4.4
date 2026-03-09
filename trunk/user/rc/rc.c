@@ -1116,6 +1116,12 @@ handle_notifications(void)
 			update_gfwlist();
 		}
 #endif
+#if defined(APP_ZEROTIER)
+		else if (strcmp(entry->d_name, RCN_RESTART_ZEROTIER) == 0)
+		{
+			restart_zerotier();
+		}
+#endif
 #if defined(APP_VLMCSD)
 		else if (strcmp(entry->d_name, RCN_RESTART_VLMCSD) == 0)
 		{
