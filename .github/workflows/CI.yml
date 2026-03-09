@@ -9,7 +9,7 @@ on:
         type: choice
         options:
           - K2P
-          - XY-C1
+          - AC105G
         default: K2P
 
       language_select:
