@@ -1122,6 +1122,36 @@ handle_notifications(void)
 			restart_zerotier();
 		}
 #endif
+#if defined(APP_BAFA)
+		else if (strcmp(entry->d_name, RCN_RESTART_BAFA) == 0)
+		{
+			restart_bafa();
+		}
+#endif
+#if defined(APP_HXCLI)
+		else if (strcmp(entry->d_name, RCN_RESTART_HXCLI) == 0)
+		{
+			restart_hxcli();
+		}
+#endif
+#if defined(APP_NELINK)
+		else if (strcmp(entry->d_name, RCN_RESTART_NELINK) == 0)
+		{
+			restart_nelink();
+		}
+#endif
+#if defined(APP_NTWON)
+		else if (strcmp(entry->d_name, RCN_RESTART_NTWON) == 0)
+		{
+			restart_ntwon();
+		}
+#endif		
+#if defined(APP_ETINK)
+		else if (strcmp(entry->d_name, RCN_RESTART_ETINK) == 0)
+		{
+			restart_etink();
+		}
+#endif			
 #if defined(APP_VLMCSD)
 		else if (strcmp(entry->d_name, RCN_RESTART_VLMCSD) == 0)
 		{
