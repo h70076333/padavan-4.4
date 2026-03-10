@@ -2055,6 +2055,51 @@ static int zerotier_status_hook(int eid, webs_t wp, int argc, char **argv)
 }
 #endif
 
+#if defined (APP_HXCLI)
+static int hxcli_status_hook(int eid, webs_t wp, int argc, char **argv)
+{
+	int hxcli_status_code = pids("hx-cli");
+	websWrite(wp, "function hxcli_status() { return %d;}\n", hxcli_status_code);
+	return 0;
+}
+#endif
+
+#if defined (APP_NELINK)
+static int nelink_status_hook(int eid, webs_t wp, int argc, char **argv)
+{
+	int nelink_status_code = pids("netlink");
+	websWrite(wp, "function nelink_status() { return %d;}\n", nelink_status_code);
+	return 0;
+}
+#endif
+
+#if defined (APP_NTWON)
+static int ntwon_status_hook(int eid, webs_t wp, int argc, char **argv)
+{
+	int ntwon_status_code = pids("ntwon");
+	websWrite(wp, "function ntwon_status() { return %d;}\n", ntwon_status_code);
+	return 0;
+}
+#endif
+
+#if defined (APP_ETINK)
+static int etink_status_hook(int eid, webs_t wp, int argc, char **argv)
+{
+	int etink_status_code = pids("easytier-core");
+	websWrite(wp, "function etink_status() { return %d;}\n", etink_status_code);
+	return 0;
+}
+#endif
+
+#if defined (APP_BAFA)
+static int bafa_status_hook(int eid, webs_t wp, int argc, char **argv)
+{
+	int bafa_status_code = pids("stdoutsubc") || pids("stdoutsub");
+	websWrite(wp, "function bafa_status() { return %d;}\n", bafa_status_code);
+	return 0;
+}
+#endif
+
 #if defined(APP_DNSFORWARDER)
 static int dnsforwarder_status_hook(int eid, webs_t wp, int argc, char **argv)
 {
@@ -2248,6 +2293,31 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 #else
 	int found_app_zerotier = 0;
 #endif
+#if defined(APP_HXCLI)
+	int found_app_hxcli = 1;
+#else
+	int found_app_hxcli = 0;
+#endif
+#if defined(APP_NELINK)
+	int found_app_nelink = 1;
+#else
+	int found_app_nelink = 0;
+#endif
+#if defined(APP_NTWON)
+	int found_app_ntwon = 1;
+#else
+	int found_app_ntwon = 0;
+#endif
+#if defined(APP_ETINK)
+	int found_app_etink = 1;
+#else
+	int found_app_etink = 0;
+#endif
+#if defined(APP_BAFA)
+	int found_app_bafa = 1;
+#else
+	int found_app_bafa = 0;
+#endif
 #if defined(APP_DNSFORWARDER)
 	int found_app_dnsforwarder = 1;
 #else
@@ -2420,6 +2490,11 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 		"function found_app_dnsforwarder() { return %d;}\n"
 		"function found_app_shadowsocks() { return %d;}\n"
 		"function found_app_zerotier() { return %d;}\n"
+		"function found_app_hxcli() { return %d;}\n"
+		"function found_app_nelink() { return %d;}\n"
+		"function found_app_ntwon() { return %d;}\n"
+		"function found_app_etink() { return %d;}\n"
+		"function found_app_bafa() { return %d;}\n"
 		"function found_app_xupnpd() { return %d;}\n"
 		"function found_app_mentohust() { return %d;}\n",
 		found_utl_hdparm,
@@ -2442,6 +2517,11 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 		found_app_dnsforwarder,
 		found_app_shadowsocks,
 		found_app_zerotier,
+		found_app_hxcli,
+		found_app_nelink,
+		found_app_ntwon,
+		found_app_etink,
+		found_app_bafa,
 		found_app_xupnpd,
 		found_app_mentohust
 	);
@@ -3151,6 +3231,161 @@ apply_cgi(const char *url, webs_t wp)
 		websRedirect(wp, current_url);
 		return 0;
 	}
+	else if (!strcmp(value, " RestartBAFA "))
+	{
+#if defined(APP_BAFA)
+		system("/usr/bin/bafa.sh restart &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " RestartNTWON "))
+	{
+#if defined(APP_NTWON)
+		system("/usr/bin/ntwon.sh restart &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " Restartnelink "))
+	{
+#if defined(APP_NELINK)
+		system("/usr/bin/ne.sh restart &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " Restartetink "))
+	{
+#if defined(APP_ETINK)
+		system("/usr/bin/etink.sh restart &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " Updateeasytier "))
+	{
+#if defined(APP_ETINK)
+		system("/usr/bin/easytier.sh update &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " CMDetpeer "))
+	{
+#if defined(APP_ETINK)
+		system("/usr/bin/easytier.sh peer &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " CMDetconnector "))
+	{
+#if defined(APP_ETINK)
+		system("/usr/bin/easytier.sh connector &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " CMDetstun "))
+	{
+#if defined(APP_ETINK)
+		system("/usr/bin/easytier.sh stun &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " CMDetroute "))
+	{
+#if defined(APP_ETINK)
+		system("/usr/bin/easytier.sh route &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " CMDetpeer_center "))
+	{
+#if defined(APP_ETINK)
+		system("/usr/bin/easytier.sh peer-center &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " CMDetvpn_portal "))
+	{
+#if defined(APP_ETINK)
+		system("/usr/bin/easytier.sh vpn-portal &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " CMDetnode "))
+	{
+#if defined(APP_ETINK)
+		system("/usr/bin/easytier.sh node &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " CMDetproxy "))
+	{
+#if defined(APP_ETINK)
+		system("/usr/bin/easytier.sh proxy &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " CMDetstatus "))
+	{
+#if defined(APP_ETINK)
+		system("/usr/bin/etink.sh status &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " Restarthxcli "))
+	{
+#if defined(APP_HXCLI)
+		system("/usr/bin/hxzn.sh restart &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " Updatehxcli "))
+	{
+#if defined(APP_HXCLI)
+		system("/usr/bin/hxzn.sh update &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " CMDhxinfo "))
+	{
+#if defined(APP_HXCLI)
+		system("/usr/bin/hxzn.sh hxinfo &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " CMDhxall "))
+	{
+#if defined(APP_HXCLI)
+		system("/usr/bin/hxzn.sh hxall &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " CMDhxlist "))
+	{
+#if defined(APP_HXCLI)
+		system("/usr/bin/hxzn.sh hxlist &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " CMDhxroute "))
+	{
+#if defined(APP_HXCLI)
+		system("/usr/bin/hxzn.sh hxroute &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " CMDhxstatus "))
+	{
+#if defined(APP_HXCLI)
+		system("/usr/bin/hxzn.sh hxstatus &");
+#endif
+		return 0;
+	}
+	else if (!strcmp(value, " ClearhxcliLog "))
+	{
+#if defined(APP_HXCLI)
+		unlink("/tmp/hx-cli.log");
+#endif
+		websRedirect(wp, current_url);
+		return 0;
+	}
 	else if (!strcmp(value, " ClearLog "))
 	{
 		// current only syslog implement this button
@@ -3757,6 +3992,65 @@ static char mentohust_log_txt[] =
 
 #endif
 
+#if defined (APP_HXCLI)
+static void
+do_hxcli_log_file(const char *url, FILE *stream)
+{
+	dump_file(stream, "/tmp/hx-cli.log");
+	fputs("\r\n", stream);
+}
+
+static char hxcli_log_txt[] =
+"Content-Disposition: attachment;\r\n"
+"filename=hx-cli.log"
+;
+
+#endif
+
+#if defined (APP_NELINK)
+static void
+do_nelink_log_file(const char *url, FILE *stream)
+{
+	dump_file(stream, "/tmp/nelink.log");
+	fputs("\r\n", stream);
+}
+
+static char nelink_log_txt[] =
+"Content-Disposition: attachment;\r\n"
+"filename=nelink.log"
+;
+
+#endif
+#if defined (APP_NTWON)
+static void
+do_ntwon_log_file(const char *url, FILE *stream)
+{
+	dump_file(stream, "/tmp/ntwon.log");
+	fputs("\r\n", stream);
+}
+
+static char ntwon_log_txt[] =
+"Content-Disposition: attachment;\r\n"
+"filename=ntwon.log"
+;
+
+#endif
+
+#if defined (APP_ETINK)
+static void
+do_etink_log_file(const char *url, FILE *stream)
+{
+	dump_file(stream, "/tmp/etink.log");
+	fputs("\r\n", stream);
+}
+
+static char etink_log_txt[] =
+"Content-Disposition: attachment;\r\n"
+"filename=etink.log"
+;
+
+#endif
+
 struct mime_handler mime_handlers[] = {
 	/* cached javascript files w/o translations */
 	{ "jquery.js", "text/javascript", NULL, NULL, do_file, 0 }, // 2012.06 Eagle23
@@ -3803,6 +4097,18 @@ struct mime_handler mime_handlers[] = {
 #endif
 #if defined(APP_MENTOHUST)
 	{ "mentohust.log", "application/force-download", mentohust_log_txt, NULL, do_mentohust_log_file, 1 },
+#endif
+#if defined(APP_HXCLI)
+	{ "hx-cli.log", "application/force-download", hxcli_log_txt, NULL, do_hxcli_log_file, 1 },
+#endif
+#if defined(APP_NELINK)
+	{ "nelink.log", "application/force-download", nelink_log_txt, NULL, do_nelink_log_file, 1 },
+#endif
+#if defined(APP_NTWON)
+	{ "ntwon.log", "application/force-download", ntwon_log_txt, NULL, do_ntwon_log_file, 1 },
+#endif
+#if defined(APP_ETINK)
+	{ "etink.log", "application/force-download", etink_log_txt, NULL, do_etink_log_file, 1 },
 #endif
 #if defined(APP_OPENVPN)
 	{ "client.ovpn", "application/force-download", NULL, NULL, do_export_ovpn_client, 1 },
@@ -4110,6 +4416,21 @@ struct ej_handler ej_handlers[] =
 #endif
 #if defined (APP_ZEROTIER)
 	{ "zerotier_status", zerotier_status_hook},
+#endif
+#if defined (APP_HXCLI)
+	{ "hxcli_status", hxcli_status_hook},
+#endif
+#if defined (APP_NELINK)
+	{ "nelink_status", nelink_status_hook},
+#endif
+#if defined (APP_NTWON)
+	{ "ntwon_status", ntwon_status_hook},
+#endif
+#if defined (APP_ETINK)
+	{ "etink_status", etink_status_hook},
+#endif
+#if defined (APP_BAFA)
+	{ "bafa_status", bafa_status_hook},
 #endif
 #if defined (APP_DNSFORWARDER)
 	{ "dnsforwarder_status", dnsforwarder_status_hook},
