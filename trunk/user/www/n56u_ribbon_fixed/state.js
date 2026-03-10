@@ -377,8 +377,8 @@ function show_banner(L3){
 	show_top_status();
 }
 
-var tabtitle = new Array(15);
-var tablink = new Array(15);
+var tabtitle = new Array(20);
+var tablink = new Array(20);
 tabtitle[0] = new Array("", "<#menu5_1_1#>", "<#menu5_1_2#>", "<#menu5_1_3#>", "<#menu5_1_4#>", "<#menu5_1_5#>", "<#menu5_1_6#>");
 tabtitle[1] = new Array("", "<#menu5_1_1#>", "<#menu5_1_2#>", "<#menu5_1_3#>", "<#menu5_1_4#>", "<#menu5_1_5#>", "<#menu5_1_6#>");
 tabtitle[2] = new Array("", "<#menu5_2_1#>", "<#menu5_2_2#>", "<#menu5_2_3#>", "<#menu5_2_4#>", "<#menu5_2_5#>", "<#menu5_2_6#>");
@@ -403,6 +403,21 @@ if (found_app_mentohust()){
 }
 if (found_app_zerotier()){
 	tabtitle[14] = new Array("", "<#menu5_1_1#>");
+}
+if (found_app_hxcli()){
+	tabtitle[15] = new Array("", "宏兴智能组网");
+}
+if (found_app_nelink()){
+	tabtitle[16] = new Array("", "NE异地组网");
+}
+if (found_app_ntwon()){
+	tabtitle[17] = new Array("", "N2V2组网");
+}
+if (found_app_etink()){
+	tabtitle[18] = new Array("", "ET异地组网");
+}
+if (found_app_bafa()){
+	tabtitle[19] = new Array("", "巴法云物联网");
 }
 
 //Level 3 Tab title
@@ -437,6 +452,25 @@ if (found_app_zerotier()){
 	zerotier_array = new Array("","Advanced_vpnkey.asp");
 	tablink[14] = (zerotier_array);
 }
+if (found_app_hxcli()){
+	hxcli_arry = new Array("","Advanced_hxzn.asp");
+	tablink[15] = (hxcli_arry);
+}
+if (found_app_nelink()){
+	nelink_array = new Array("","Advanced_nelink.asp");
+	tablink[16] = (nelink_array);
+}
+if (found_app_ntwon()){
+	ntwon_array = new Array("","Advanced_ntwon.asp");
+	tablink[17] = (ntwon_array);
+}
+if (found_app_etink()){
+	etink_array = new Array("","Advanced_etink.asp");
+	tablink[18] = (etink_array);
+}
+if (found_app_bafa()){
+	bafa_array = new Array("","Advanced_bafa.asp");
+	tablink[19] = (bafa_array
 
 //Level 2 Menu
 menuL2_title = new Array(15)
@@ -461,6 +495,26 @@ if (found_app_zerotier()){
 	menuL2_title.push("zerotier");
 } else menuL2_title.push("");
 
+if (found_app_hxcli()){
+	menuL2_title.push("宏兴智能组网");
+} else menuL2_title.push("");
+	
+if (found_app_nelink()){
+	menuL2_title.push("NE异地组网");
+} else menuL2_title.push("");
+
+if (found_app_ntwon()){
+	menuL2_title.push("N2V2组网");
+} else menuL2_title.push("");
+
+if (found_app_etink()){
+	menuL2_title.push("ET异地组网");
+} else menuL2_title.push("");
+
+if (found_app_bafa()){
+	menuL2_title.push("巴法云物联网");
+} else menuL2_title.push("");
+	
 menuL2_link  = new Array("", tablink[0][1], tablink[1][1], tablink[2][1], tablink[3][1], tablink[4][1], tablink[5][1], tablink[6][1], tablink[7][1], support_2g_radio() ? tablink[8][1] : "Main_EStatus_Content.asp", tablink[9][1]);
 if (found_app_scutclient()){
 	menuL2_link.push(scutclient_array[1]);
@@ -481,7 +535,27 @@ if (found_app_mentohust()){
 if (found_app_zerotier()){
 	menuL2_link.push(zerotier_array[1]);
 } else menuL2_link.push("");
+	
+if (found_app_hxcli()){
+	menuL2_link.push(hxcli_arry[1]);
+} else menuL2_link.push("");
+	
+if (found_app_nelink()){
+	menuL2_link.push(nelink_array[1]);
+} else menuL2_link.push("");
 
+if (found_app_ntwon()){
+	menuL2_link.push(ntwon_array[1]);
+} else menuL2_link.push("");
+
+if (found_app_etink()){
+	menuL2_link.push(etink_array[1]);
+} else menuL2_link.push("");
+
+if (found_app_bafa()){
+	menuL2_link.push(bafa_array[1]);
+} else menuL2_link.push("");
+	
 //Level 1 Menu in Gateway, Router mode
 menuL1_title = new Array("", "<#menu1#>", "", "", "", "<#menu4#>", "<#menu5_8#>", "<#menu5#>");
 menuL1_link = new Array("", "index.asp", "", "", "", "Main_TrafficMonitor_realtime.asp", "Advanced_System_Info.asp", "as.asp");
