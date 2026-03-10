@@ -23,11 +23,10 @@
 <script type="text/javascript" src="/help.js"></script>
 <script type="text/javascript" src="/help_b.js"></script>
 <script>
-<% zerotier_status(); %>
-<% login_state_hook(); %>
-
 var $j = jQuery.noConflict();
 
+<% zerotier_status(); %>
+<% login_state_hook(); %>
 $j(document).ready(function() {
 
 	init_itoggle('zerotier_enable');
