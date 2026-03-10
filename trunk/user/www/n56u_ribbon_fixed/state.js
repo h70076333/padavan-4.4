@@ -377,8 +377,8 @@ function show_banner(L3){
 	show_top_status();
 }
 
-var tabtitle = new Array(19);
-var tablink = new Array(19);
+var tabtitle = new Array(15);
+var tablink = new Array(15);
 tabtitle[0] = new Array("", "<#menu5_1_1#>", "<#menu5_1_2#>", "<#menu5_1_3#>", "<#menu5_1_4#>", "<#menu5_1_5#>", "<#menu5_1_6#>");
 tabtitle[1] = new Array("", "<#menu5_1_1#>", "<#menu5_1_2#>", "<#menu5_1_3#>", "<#menu5_1_4#>", "<#menu5_1_5#>", "<#menu5_1_6#>");
 tabtitle[2] = new Array("", "<#menu5_2_1#>", "<#menu5_2_2#>", "<#menu5_2_3#>", "<#menu5_2_4#>", "<#menu5_2_5#>", "<#menu5_2_6#>");
@@ -405,19 +405,19 @@ if (found_app_zerotier()){
 	tabtitle[14] = new Array("", "<#menu5_1_1#>");
 }
 if (found_app_hxcli()){
-	tabtitle[15] = new Array("", "<#menu5_1_1#>","<#menu5_13_log#>");
+	tabtitle[15] = new Array("", "hxcli");
 }
 if (found_app_nelink()){
-	tabtitle[16] = new Array("", "<#menu5_1_1#>");
+	tabtitle[16] = new Array("", "nelink");
 }
 if (found_app_ntwon()){
-	tabtitle[17] = new Array("", "<#menu5_1_1#>","<#menu5_13_log#>");
+	tabtitle[17] = new Array("", "ntwon");
 }
 if (found_app_etink()){
-	tabtitle[18] = new Array("", "<#menu5_1_1#>","<#menu5_13_log#>");
+	tabtitle[18] = new Array("", "etink");
 }
 if (found_app_bafa()){
-	tabtitle[19] = new Array("", "<#menu5_1_1#>","<#menu5_13_log#>");
+	tabtitle[19] = new Array("", "bafa");
 }
 
 //Level 3 Tab title
