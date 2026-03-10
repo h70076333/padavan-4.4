@@ -496,23 +496,23 @@ if (found_app_zerotier()){
 } else menuL2_title.push("");
 
 if (found_app_hxcli()){
-	menuL2_title.push("宏兴智能组网");
+	menuL2_title.push("hxcli");
 } else menuL2_title.push("");
 	
 if (found_app_nelink()){
-	menuL2_title.push("NE异地组网");
+	menuL2_title.push("nelink");
 } else menuL2_title.push("");
 
 if (found_app_ntwon()){
-	menuL2_title.push("N2V2组网");
+	menuL2_title.push("ntwon");
 } else menuL2_title.push("");
 
 if (found_app_etink()){
-	menuL2_title.push("ET异地组网");
+	menuL2_title.push("etink");
 } else menuL2_title.push("");
 
 if (found_app_bafa()){
-	menuL2_title.push("巴法云物联网");
+	menuL2_title.push("bafa");
 } else menuL2_title.push("");
 	
 menuL2_link  = new Array("", tablink[0][1], tablink[1][1], tablink[2][1], tablink[3][1], tablink[4][1], tablink[5][1], tablink[6][1], tablink[7][1], support_2g_radio() ? tablink[8][1] : "Main_EStatus_Content.asp", tablink[9][1]);
