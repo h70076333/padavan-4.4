@@ -405,19 +405,19 @@ if (found_app_zerotier()){
 	tabtitle[14] = new Array("", "<#menu5_1_1#>");
 }
 if (found_app_hxcli()){
-	tabtitle[15] = new Array("", "宏兴智能组网");
+	tabtitle[15] = new Array("", "<#menu5_1_1#>");
 }
 if (found_app_nelink()){
-	tabtitle[16] = new Array("", "NE异地组网");
+	tabtitle[16] = new Array("", "<#menu5_1_1#>");
 }
 if (found_app_ntwon()){
-	tabtitle[17] = new Array("", "N2V2组网");
+	tabtitle[17] = new Array("", "<#menu5_1_1#>");
 }
 if (found_app_etink()){
-	tabtitle[18] = new Array("", "ET异地组网");
+	tabtitle[18] = new Array("", "<#menu5_1_1#>");
 }
 if (found_app_bafa()){
-	tabtitle[19] = new Array("", "巴法云物联网");
+	tabtitle[19] = new Array("", "<#menu5_1_1#>");
 }
 
 //Level 3 Tab title
@@ -470,7 +470,7 @@ if (found_app_etink()){
 }
 if (found_app_bafa()){
 	bafa_array = new Array("","Advanced_bafa.asp");
-	tablink[19] = (bafa_array
+	tablink[19] = (bafa_array);
 
 //Level 2 Menu
 menuL2_title = new Array(15)
