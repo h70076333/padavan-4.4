@@ -92,6 +92,11 @@ typedef u_int8_t u8;
 #define EVM_RESTART_SS_TUNNEL		(1ULL << 49)
 #define EVM_RESTART_MENTOHUST		(1ULL << 50)
 #define EVM_RESTART_ZEROTIER		(1ULL << 51)
+#define EVM_RESTART_HXCLI		    (1ULL << 52)
+#define EVM_RESTART_NELINK		    (1ULL << 53)
+#define EVM_RESTART_BAFA		    (1ULL << 54)
+#define EVM_RESTART_NTWON		    (1ULL << 55)
+#define EVM_RESTART_ETINK		    (1ULL << 56)
 
 #define EVM_RESTART_REBOOT		(1ULL << 62)
 
@@ -152,6 +157,11 @@ typedef u_int8_t u8;
 #define EVT_RESTART_DNSFORWARDER	1
 #define EVT_RESTART_MENTOHUST		2
 #define EVT_RESTART_ZEROTIER		2
+#define EVT_RESTART_BAFA      		2
+#define EVT_RESTART_HXCLI      		2
+#define EVT_RESTART_NELINK      	2
+#define EVT_RESTART_NTWON     	2
+#define EVT_RESTART_ETINK     	2
 #define EVT_RESTART_REBOOT		40
 
 struct variable
