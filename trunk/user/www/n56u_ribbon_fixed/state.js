@@ -493,7 +493,7 @@ if (found_app_mentohust()){
 } else menuL2_title.push("");
 
 if (found_app_zerotier()){
-	menuL2_title.push("zerotier");
+	menuL2_title.push("组网服务");
 } else menuL2_title.push("");
 
 if (found_app_hxcli()){
