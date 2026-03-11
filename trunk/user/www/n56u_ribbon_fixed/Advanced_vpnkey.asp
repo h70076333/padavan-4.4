@@ -25,20 +25,18 @@
 <script>
 var $j = jQuery.noConflict();
 
-<% zerotier_status(); %>
-<% login_state_hook(); %>
 $j(document).ready(function() {
 
 	init_itoggle('zerotier_enable');
 	init_itoggle('zerotier_nat');
-	init_itoggle('afycx_enable');
-	init_itoggle('gecoac_enable');
+	init_itoggle('zerotiermoon_enable');
 
 });
 
 </script>
 <script>
-
+<% zerotier_status(); %>
+<% login_state_hook(); %>
 
 var m_list = [<% get_nvram_list("ZeroConf", "ZeroList"); %>];
 var mlist_ifield = 4;
@@ -150,12 +148,6 @@ function showMRULESList(){
 	}
 	code +='</table>';
 	$("MRULESList_Block").innerHTML = code;
-}
-
-function button_gecoac_web(){
-	var port = '60650';
-	var url = window.location.protocol + "//" + window.location.hostname + ":" + port;
-	window.open(url);
 }
 
 </script>
