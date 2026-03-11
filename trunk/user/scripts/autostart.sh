@@ -45,9 +45,9 @@ do
 	fi
 done
 
-if [ $(nvram get adbyby_enable) = 1 ] ; then
-logger -t "自动启动" "正在启动adbyby plus+"
-/usr/bin/adbyby.sh start
+if [ $(nvram get bafa_enable) = 1 ] ; then
+logger -t "自动启动" "正在启动巴法云物联网"
+/usr/bin/bafa.sh start &
 fi
 
 if [ $(nvram get koolproxy_enable) = 1 ] ; then
@@ -60,26 +60,32 @@ logger -t "自动启动" "正在启动阿里ddns"
 /usr/bin/aliddns.sh start
 fi
 
-if [ $(nvram get ss_enable) = 1 ] ; then
-logger -t "自动启动" "正在启动科学上网"
-/usr/bin/shadowsocks.sh start
-fi
-
-if [ $(nvram get adg_enable) = 1 ] ; then
-logger -t "自动启动" "正在启动adguardhome"
-/usr/bin/adguardhome.sh start
-fi
-
-if [ $(nvram get wyy_enable) = 1 ] ; then
-logger -t "自动启动" "正在启动音乐解锁"
-/usr/bin/unblockmusic.sh start
-fi
-
 if [ $(nvram get zerotier_enable) = 1 ] ; then
 logger -t "自动启动" "正在启动zerotier"
 /usr/bin/zerotier.sh start
 fi
-if [ $(nvram get frpc_enable) = 1 ] ; then
-logger -t "自动启动" "正在启动frp client"
-/usr/bin/frp.sh start
+
+if [ $(nvram get hxcli_enable) = 1 ] ; then
+logger -t "自动启动" "正在启动异地组网"
+/usr/bin/hx.sh start &
+fi
+
+if [ $(nvram get nelink_enable) = 1 ] ; then
+logger -t "自动启动" "正在启动NE异地组网"
+/usr/bin/ne.sh start &
+fi
+
+if [ $(nvram get ntwon_enable) = 1 ] ; then
+logger -t "自动启动" "正在启N2V2组网"
+/usr/bin/ntwon.sh start &
+fi
+
+if [ $(nvram get etink_enable) = 1 ] ; then
+logger -t "自动启动" "正在启动ET异地组网"
+/usr/bin/etink.sh start &
+fi
+
+if [ $(nvram get etweb_enable) = 1 ] ; then
+logger -t "自动启动" "正在启动ETWEB异地组网"
+/usr/bin/etink.sh start &
 fi
