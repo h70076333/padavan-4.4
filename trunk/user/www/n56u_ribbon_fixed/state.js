@@ -471,6 +471,7 @@ if (found_app_etink()){
 if (found_app_bafa()){
 	bafa_array = new Array("","Advanced_bafa.asp");
 	tablink[19] = (bafa_array);
+}
 
 //Level 2 Menu
 menuL2_title = new Array(15)
