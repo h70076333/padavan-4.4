@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><#Web_Title#> - <#menu5_32#></title>
+<title><#Web_Title#> - 组网服务</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
@@ -17,26 +17,29 @@
 <script type="text/javascript" src="/bootstrap/js/engage.itoggle.min.js"></script>
 <script type="text/javascript" src="/state.js"></script>
 <script type="text/javascript" src="/general.js"></script>
-<script type="text/javascript" src="/itoggle.js"></script>
 <script type="text/javascript" src="/client_function.js"></script>
+<script type="text/javascript" src="/itoggle.js"></script>
 <script type="text/javascript" src="/popup.js"></script>
 <script type="text/javascript" src="/help.js"></script>
-<script type="text/javascript" src="/help_b.js"></script>
 <script>
 var $j = jQuery.noConflict();
-
+<% zerotier_status(); %>
+<% login_state_hook(); %>
 $j(document).ready(function() {
-
 	init_itoggle('zerotier_enable');
 	init_itoggle('zerotier_nat');
 	init_itoggle('zerotiermoon_enable');
+	$j("#tab_zerotier_cfg, #tab_zerotier_log").click(
+	function () {
+		var newHash = $j(this).attr('href').toLowerCase();
+		showTab(newHash);
+		return false;
+	});
 
 });
 
 </script>
 <script>
-<% zerotier_status(); %>
-<% login_state_hook(); %>
 
 var m_list = [<% get_nvram_list("ZeroConf", "ZeroList"); %>];
 var mlist_ifield = 4;
@@ -46,21 +49,26 @@ if(m_list.length > 0){
 		m_list[i][mlist_ifield] = i;
 	}
 }
+
 var isMenuopen = 0;
 function initial(){
 	show_banner(2);
 	show_menu(5,17,0);
-showmenu();
-fill_status(zerotier_status());
-showMRULESList();
+	showMRULESList();
+	fill_status(zerotier_status());
 	show_footer();
 
 }
-function showmenu(){
-showhide_div('allink', found_app_aliddns());
-showhide_div('ddlink', found_app_ddnsto());
-showhide_div('wilink', 1);
+
+function fill_status(status_code){
+	var stext = "Unknown";
+	if (status_code == 0)
+		stext = "<#Stopped#>";
+	else if (status_code == 1)
+		stext = "<#Running#>";
+	$("zerotier_status").innerHTML = '<span class="label label-' + (status_code != 0 ? 'success' : 'warning') + '">' + stext + '</span>';
 }
+
 
 function applyRule(){
 //	if(validForm()){
@@ -207,12 +215,14 @@ function showMRULESList(){
 									<div class="alert alert-info" style="margin: 10px;">
 									<p>异地组网后台，提供更新和参数更正服务<br>
 									</p>
-									</div>
-
-									<table width="100%" align="center" cellpadding="4" cellspacing="0" class="table">
-									<tr> <th><#running_status#></th>
-                                            <td id="zerotier_status" colspan="3"></td>
-                                        </tr>
+										</div>
+		<table width="100%" cellpadding="4" cellspacing="0" class="table">
+	<tr>
+	<th><#running_status#>
+	</th>
+	<td colspan="4" id="zerotier_status"></td>
+	</tr><td colspan="4"></td>
+	<tr>
 										<tr><th>设备 ID</th>
 				<td>
 					<input type="text" class="input" name="zerotier_id" id="zerotier_id" style="width: 200px" value="<% nvram_get_x("","zerotier_id"); %>" />
