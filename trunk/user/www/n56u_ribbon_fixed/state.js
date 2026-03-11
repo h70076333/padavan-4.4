@@ -405,19 +405,19 @@ if (found_app_zerotier()){
 	tabtitle[14] = new Array("", "<#menu5_1_1#>");
 }
 if (found_app_hxcli()){
-	tabtitle[15] = new Array("", "<#menu5_1_1#>,"<#menu5_13_log#>");
+	tabtitle[15] = new Array("", "<#menu5_1_1#>");
 }
 if (found_app_nelink()){
 	tabtitle[16] = new Array("", "<#menu5_1_1#>");
 }
 if (found_app_ntwon()){
-	tabtitle[17] = new Array("", "<#menu5_1_1#>","<#menu5_13_log#>");
+	tabtitle[17] = new Array("", "<#menu5_1_1#>");
 }
 if (found_app_etink()){
-	tabtitle[18] = new Array("", "<#menu5_1_1#>","<#menu5_13_log#>");
+	tabtitle[18] = new Array("", "<#menu5_1_1#>");
 }
 if (found_app_bafa()){
-	tabtitle[19] = new Array("", "<#menu5_1_1#>","<#menu5_13_log#>");
+	tabtitle[19] = new Array("", "<#menu5_1_1#>");
 }
 
 //Level 3 Tab title
