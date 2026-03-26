@@ -103,3 +103,4 @@ typedef union _RTMP_PBF_SYS_CTRL_STRUC {
 #endif /* SPECIFIC_BCN_BUF_SUPPORT */
 
 #endif /* __RAL_OMAC_PBF_H__ */
+

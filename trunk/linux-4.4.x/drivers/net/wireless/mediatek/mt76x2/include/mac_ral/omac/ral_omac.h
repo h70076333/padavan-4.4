@@ -385,3 +385,4 @@ INT rtmp_get_rxwi_snr(union _RXWI_STRUC *rxwi, INT size, UCHAR *snr);
 VOID rtmp_asic_init_txrx_ring(struct _RTMP_ADAPTER *pAd);
 
 #endif /* __RAL_OMAC_H__ */
+
