@@ -113,3 +113,4 @@ struct wifi_dev *get_wdev_by_idx(RTMP_ADAPTER *pAd, INT idx)
 
 	return wdev;
 }
+
