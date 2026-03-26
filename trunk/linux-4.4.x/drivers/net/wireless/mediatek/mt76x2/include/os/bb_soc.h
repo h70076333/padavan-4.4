@@ -52,3 +52,4 @@ extern VOID BBUPollingModeInit(IN RTMP_ADAPTER *pAd);
 extern VOID BBUPollingModeStart(IN RTMP_ADAPTER *pAd);
 extern VOID BBUPrepareMAC(IN RTMP_ADAPTER *pAd, PUCHAR macaddr );
 #endif
+
