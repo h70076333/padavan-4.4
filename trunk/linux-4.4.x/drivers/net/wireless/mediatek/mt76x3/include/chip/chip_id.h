@@ -82,3 +82,4 @@
 
 #define NIC7603_PCIe_DEVICE_ID	0x7603
 #endif /* __CHIP_ID_H__ */
+
