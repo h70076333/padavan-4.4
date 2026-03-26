@@ -18,10 +18,14 @@
 	Module Name:
 
 	Abstract:
+	Network Acceleration related function
 
 	Revision History:
 	Who 		When			What
 	--------	----------		----------------------------------------------
 */
+
+#include "rt_config.h"
+
 
 
